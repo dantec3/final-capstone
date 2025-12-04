@@ -425,11 +425,6 @@ function restartGame() {
   padContainer.classList.add("unclickable");
 }
 
-
-
-
-
-
 /**
  * Please do not modify the code below.
  * Used for testing purposes.

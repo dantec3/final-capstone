@@ -6,6 +6,10 @@
  const statusSpan = document.querySelector(".js-status");
  const heading = document.querySelector(".js-heading");
  const padContainer = document.querySelector(".js-pad-container");
+ const resultsScreen = document.querySelector(".js-results");
+ const resultsTitle = document.querySelector(".js-results-title");
+ const restartButton = document.querySelector(".js-restart-button");
+
 
 
 /**
@@ -60,6 +64,8 @@ const pads = [
 
 padContainer.addEventListener("click", padHandler);
 startButton.addEventListener("click", startButtonHandler);
+restartButton.addEventListener("click", restartGame);
+
 
 
 /**
@@ -385,16 +391,43 @@ function checkRound() {
  * 3. Reset `roundCount` to an empty array
  */
 function resetGame(text) {
+  // Hide game UI
+  padContainer.classList.add("hidden");
+  statusSpan.classList.add("hidden");
+  startButton.classList.add("hidden");
+
+  // Show results screen
+  resultsScreen.classList.remove("hidden");
+  resultsTitle.textContent = text;
+
+  // Reset game values
   computerSequence = [];
   playerSequence = [];
   roundCount = 1;
+}
 
-  alert(text);
-  setText(heading, "GrandMaster Says");
+function restartGame() {
+  // Hide results screen
+  resultsScreen.classList.add("hidden");
+
+  // Show main UI
+  padContainer.classList.remove("hidden");
   startButton.classList.remove("hidden");
-  statusSpan.classList.add("hidden");
+
+  // Reset heading
+  setText(heading, "GrandMaster Says");
+
+  // Reset arrays
+  computerSequence = [];
+  playerSequence = [];
+
+  // Disable pads until next start
   padContainer.classList.add("unclickable");
 }
+
+
+
+
 
 
 /**

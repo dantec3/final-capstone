@@ -98,7 +98,7 @@ describe("US-03: playComputerTurn()", () => {
   });
 
   it("should add a random color to `computerSequence`", async () => {
-    const expected = ["red", "blue", "green", "yellow"];
+    const expected = ["red", "blue", "green", "orange"];
     const initialComputerSequence = await page.evaluate(() => {
       return window.computerSequence;
     });

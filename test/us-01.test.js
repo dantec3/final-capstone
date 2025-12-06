@@ -18,7 +18,7 @@ const setUpTest = async () => {
 describe("US-01: Basic Game Structure", () => {
   beforeEach(setUpTest);
 
-  it("has a heading e.g. <h1 id='title'>Simon Says</h1>", async () => {
+  it("has a heading e.g. <h1 id='title'>GrandMaster Says</h1>", async () => {
     const heading = await page.evaluate(() => {
       const heading = document.querySelectorAll(".js-heading");
       return heading.length;
@@ -64,9 +64,9 @@ describe("US-01: Basic Game Structure", () => {
     expect(pad).toEqual(1);
   });
 
-  it("has a yellow pad <div class='pad-yellow'>", async () => {
+  it("has a yellow pad <div class='pad-orange'>", async () => {
     const pad = await page.evaluate(() => {
-      const pad = document.querySelectorAll(".js-pad-yellow");
+      const pad = document.querySelectorAll(".js-pad-orange");
       return pad.length;
     });
     expect(pad).not.toBeNull();
@@ -101,7 +101,7 @@ describe("US-01: Basic Game Structure", () => {
     expect(padContainer).toBeDefined();
   });
 
-  it("defines JS objects for the green, blue, and yellow pads", async () => {
+  it("defines JS objects for the green, blue, and orange pads", async () => {
     const pads = await page.evaluate(() => {
       return window.pads;
     });

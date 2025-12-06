@@ -25,11 +25,11 @@ describe("US-05: resetGame(text)", () => {
     expect(resetGame).toContain("alert(text)");
   });
 
-  it("should use `setText(heading, 'Simon Says')` to reset the heading to `Simon Says`", async () => {
+  it("should use `setText(heading, 'GrandMaster Says')` to reset the heading to `GrandMaster Says`", async () => {
     const resetGame = await page.evaluate(() => {
       return window.resetGame.toString();
     });
-    expect(resetGame).toContain('setText(heading, "Simon Says")');
+    expect(resetGame).toContain('setText(heading, "GrandMaster Says")');
   });
 
   it("should use `startButton.classList.remove('hidden')` to show the start button", async () => {
